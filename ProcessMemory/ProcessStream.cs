@@ -90,7 +90,7 @@ namespace ProcessMemory
         }
 
         public long PatternScan(IMemoryPattern pattern) {
-            return PatternScan(pattern, 4096 * 4, 0x100000000);
+            return PatternScan(pattern, 4096 * 2, 0x100000000);
         }
 
         public long PatternScan(IMemoryPattern pattern, int scanBufferSize, long scanSize) {
@@ -103,7 +103,7 @@ namespace ProcessMemory
 
             while (currentAddress < endAddress) {
                 ReadMemory(currentAddress, buffer, scanBufferSize);
-                long index = pattern.FindMatch(buffer);
+                long index = pattern.FindMatch(buffer, buffer.Length);
                 if (index != -1)
                     return currentAddress + index;
                 currentAddress += scanBufferSize;

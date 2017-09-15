@@ -32,9 +32,9 @@ namespace ProcessMemory
             PatternBytes = bytes;
         }
 
-        public long FindMatch(byte[] source) {
+        public long FindMatch(byte[] source, long length) {
             bool allTheSame;
-            for (int i = 0; i + PatternBytes.Length <= source.Length; i++) {
+            for (int i = 0; i + PatternBytes.Length <= length; i++) {
                 allTheSame = true;
                 for (int jj = 0; jj < PatternBytes.Length; jj++) {
                     if (PatternBytes[jj] == null)

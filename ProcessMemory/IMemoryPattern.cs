@@ -13,7 +13,7 @@ namespace ProcessMemory
         /// </summary>
         /// <param name="source">The byte array to search in.</param>
         /// <returns>Returns the start index of the found pattern if pattern isn't find it should return -1.</returns>
-        long FindMatch(byte[] source);
+        long FindMatch(byte[] source, long length);
         long Length { get; }
     }
 }
